@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 float ji = ax*lastAx + ay*lastAy + az*lastAz;
                 float length = (float) (Math.sqrt(ax*ax + ay*ay + az*az) * Math.sqrt(lastAx*lastAx + lastAy*lastAy + lastAz*lastAz));
                 Log.e(TAG, "cos: "+ ji/length);
-                if(ji/length < -0.9){
+                if(ji/length < -0.8){
                     lastShakeTimestamp = sensorEvent.timestamp;
                     Log.e(TAG, "cos: "+ ji/length);
                     Log.e(TAG, "ACCELEROMETER: " + Math.sqrt(ax*ax + ay*ay + az*az));
@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
 //                    lastAy = ay;
 //                    lastAx = ax;
                     reset();
-                }else if (ji/length > 0.9){
+//                    Log.e(TAG, "reset: ===========");
+                }else if (ji/length > 0.8){
                     lastAy += ay;
                     lastAz += az;
                     lastAx += ax;
